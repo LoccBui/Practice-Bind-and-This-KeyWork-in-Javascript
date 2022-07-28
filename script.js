@@ -35,11 +35,8 @@ const app = (() => {
             
         },
 
-        
-
         init() {
-
-            submit.onclick = () => {
+            submit.onclick  = () => {
                 const newCar =  input.value
                 this.addCar(newCar)
 
@@ -48,6 +45,10 @@ const app = (() => {
                 input.value = ''
                 input.focus()
             },
+
+            input.onkeydown = (e) => {
+                if(e.keyCode == 13) submit.onclick()
+            }
             //Bind to this(app), if not bind: this will be list(ul),
             list.onclick = this.handleDelete.bind(this)
             this.render()
